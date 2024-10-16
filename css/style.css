@@ -1,0 +1,95 @@
+body{
+    background-color: #1B1E2F;
+    margin: 0;
+}
+nav{
+    background-color: #2E3140;
+    overflow: hidden;
+    a{
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    a:hover{
+        background-color: #F2884B;
+        color: #1B1E2F;
+    }
+    .logout{
+        float: right;
+        background-color: #F2884B;
+        color: #1B1E2F;
+    }
+    .logout:hover{
+        background-color: #F25757;
+        color: #FCFFF8;
+    }
+}
+.hero{
+    background-color: #FECDA8;
+    padding: 10%;
+    text-align: center;
+    color: #1B1E2F;
+    a{
+        background-color: #F2884B;
+        padding: 8px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #FCFFF8;
+    }
+    a:hover{
+        background-color: #444359;
+        color: #FCFFF8;
+    }
+}
+.content{
+    margin-top: 20px;
+    color: #f2f2f2;
+    text-align: center;
+    justify-content: center;
+    ul{
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        grid-gap: 20px;
+        list-style-type: none;
+        padding: 0;
+        margin: 15px;
+    }
+    li{
+        background-color: #2E3140;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        strong{
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+    }
+    a{
+        background-color: #F2884B;
+        padding: 5px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #f2f2f2;
+    }
+    a:hover{
+        background-color: #444359;
+        color: #FCFFF8;
+    }
+}
+.container{
+    color: #FCFFF8;
+}
+/* Item Details */
+.desc{
+    color: #FCFFF8;
+    margin: 8px;
+}
+.hero-sm{
+    background-color: #FECDA8;
+    padding: 5%;
+    text-align: center;
+    color: #1B1E2F;
+}
