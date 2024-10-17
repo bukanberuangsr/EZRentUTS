@@ -10,18 +10,14 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // Cek apakah password dan konfirmasi password cocok
     if ($password !== $confirm_password) {
-        $error_message = 'Password dan konfirmasi password tidak cocok!';
+        $error_message = 'Password did not match!';
     } else {
-        // Hash password
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        // Query untuk menyimpan user baru
         $query = "INSERT INTO users (username, userpass) VALUES ('$username', '$hashed_password')";
-
         if (mysqli_query($conn, $query)) {
-            $success_message = 'Registrasi berhasil! Silakan login.';
+            $success_message = 'Registration success! Please login.';
             header('Location: login.php');
         } else {
             $error_message = 'Sign up failed: ' . mysqli_error($conn);

@@ -2,7 +2,6 @@
 session_start();
 include '../db/db.php';
 
-// Cek apakah user sudah login
 if (isset($_SESSION['username'])) {
     header('Location: ../index.php');
     exit();
@@ -14,12 +13,10 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Query untuk memeriksa apakah username dan password cocok di database
     $query = "SELECT * FROM users WHERE username = '$username'";
     $result = mysqli_query($conn, $query);
     $user = mysqli_fetch_assoc($result);
 
-    // Jika username ditemukan dan password cocok
     if ($user && password_verify($password, $user['userpass'])) {
         $_SESSION['username'] = $user['username'];
         $_SESSION['is_admin'] = $user['is_admin'];
