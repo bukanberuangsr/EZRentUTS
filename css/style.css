@@ -79,17 +79,78 @@ nav{
         color: #FCFFF8;
     }
 }
-.container{
-    color: #FCFFF8;
-}
+
 /* Item Details */
-.desc{
-    color: #FCFFF8;
-    margin: 8px;
-}
 .hero-sm{
     background-color: #FECDA8;
     padding: 5%;
     text-align: center;
     color: #1B1E2F;
+}
+#description{
+    background-color: #2E3140;
+    color: #FCFFF8;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 30px;
+    width: 50%;
+    border-radius: 10px;
+}
+.desc{
+    color: #FCFFF8;
+    margin: 8px;
+    text-align: justify;
+}
+.desc-img{
+    /* float: left; */
+    align-items: center;
+    margin: 8px;
+    margin-right: 50px;
+    ul{
+        list-style-type: none;
+        padding: 0;
+    }
+    img{
+        width: 250px;
+        border-radius: 15px;
+    }
+}
+
+/* Admin Dashboard */
+.container{
+    background-color: #2E3140;
+    color: #FCFFF8;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 30px;
+    width: 40%;
+    border-radius: 10px;
+    a{
+        background-color: #F2884B;
+        padding: 5px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #f2f2f2;
+    }
+    h1{
+        text-align: center;
+    }
+    input{
+        width: 96%;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+    }
+    textarea{
+        width: 96%;
+        height: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 15px;
+    }
 }
