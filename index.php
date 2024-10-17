@@ -45,7 +45,7 @@ if (isset($_POST['delete_item'])) {
 </head>
 <body>
     <nav>
-        <a href="index.php">Home</a>
+        <a href="../../index.php">Home</a>
         <a class="logout" href="./auth/logout.php">Logout</a>
     </nav>
     <div class="hero">
