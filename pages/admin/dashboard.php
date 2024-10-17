@@ -9,9 +9,9 @@ $error_message = '';
 $success_message = '';
 
 if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $description = $_POST['description'];
-    $available = $_POST['available'];
+    $name = mysqli_real_escape_string($conn,$_POST['name']);
+    $description = mysqli_real_escape_string($conn,$_POST['description']);
+    $available = intval($_POST['available']);
 
     // Handle the file upload
     if ($_FILES['image']['error'] == 0) {
@@ -48,6 +48,23 @@ if (isset($_POST['submit'])) {
         $error_message = "Please fill out all fields correctly!";
     }
 }
+// Delete item logic
+if (isset($_GET['delete'])) {
+    $item_id = intval($_GET['delete']);
+    $delete_query = "DELETE FROM items WHERE id = $item_id";
+    if (mysqli_query($conn, $delete_query)) {
+        $success_message = "Item deleted successfully!";
+    } else {
+        $error_message = "Error: " . mysqli_error($conn);
+    }
+}
+
+// TODO Update existing items
+
+
+// Fetch all items
+$items_query = "SELECT * FROM items";
+$items_result = mysqli_query($conn, $items_query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,10 +76,10 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
     <nav>
-        <a href="index.php">Home</a>
+        <a href="../../index.php">Home</a>
         <a class="logout" href="../../auth/logout.php">Logout</a>
     </nav>
-    <div class="hero">
+    <div class="hero-sm">
         <h1>Welcome to the Admin Dashboard</h1>
         <p>Do your stuff, Administrator. Have fun.</p>
     </div>
@@ -93,6 +110,39 @@ if (isset($_POST['submit'])) {
 
             <input type="submit" name="submit" value="Add Item">
         </form>
+    </div>
+    <div class="container">
+        <h1>Item List</h1>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Available</th>
+                <th>Image</th>
+                <th>Action</th>
+            </tr>
+            <?php if (mysqli_num_rows($items_result) > 0): ?>
+                <?php while ($row = mysqli_fetch_assoc($items_result)): ?>
+                    <tr style="text-align:center;">
+                        <td><?php echo $row['id']; ?></td>
+                        <td><?php echo htmlspecialchars($row['name']); ?></td>
+                        <td style="text-align:justify;"><?php echo htmlspecialchars($row['description']); ?></td>
+                        <td><?php echo $row['available']; ?></td>
+                        <td><img src="<?php echo $row['image']; ?>" alt="Item Image" style="width: 100px;"></td>
+                        <td>
+                            <a href="?delete=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure you want to delete this item?')">Delete</a>
+                            <br><br>
+                            <a href="edit_item.php?id=<?php echo $row['id']; ?>">Edit</a>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <tr>
+                    <td colspan="6">No items available.</td>
+                </tr>
+            <?php endif; ?>
+        </table>
     </div>
 </body>
 </html>
