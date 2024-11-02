@@ -1,6 +1,6 @@
 # EZRent - UTS PAW 2024
 
->EZRent diperuntukan untuk keperluan Ujian Tengah Semester mata kuliah Pengembangan Aplikasi Web kelas TI-D
+>EZRent dibuat untuk keperluan Ujian Tengah Semester mata kuliah Pengembangan Aplikasi Web kelas TI-D
 
 ## Data Diri
 
